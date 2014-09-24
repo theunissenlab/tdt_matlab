@@ -1,0 +1,14 @@
+function tf = access(tank)
+
+% Access tank on the TDT server
+
+global ttank
+
+if ttank.ConnectServer(servername,clientname) ~=1
+    error('error connecting to server');
+end
+if ttank.OpenTank(tank.name,'R') ~=1
+    error('error opening tank');
+end
+
+tf = 1;
